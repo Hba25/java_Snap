@@ -26,7 +26,8 @@ public class CardGame {
 
 
     }
-    public ArrayList<Card> getDeck() {
+    public ArrayList<Card> getDeck()
+    {
         return cards;
     }
 
@@ -41,7 +42,8 @@ public class CardGame {
 
 
     //shuffleDeck()
-    public ArrayList<Card> shuffleDeck(){
+    public ArrayList<Card> shuffleDeck()
+    {
     Collections.shuffle(cards);
     return cards;
     }

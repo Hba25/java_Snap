@@ -15,7 +15,7 @@ public class Card{
 
     //toString()
     public String toString(){
-        return suit + " of " + symbol ;
+        return symbol + " of " + suit ;
     }
 
     public String getSuit() {
