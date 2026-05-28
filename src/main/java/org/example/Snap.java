@@ -69,7 +69,7 @@ public class Snap extends CardGame
                     //Scanner to read user input
                     String snapOpp = sc.nextLine();
                     long afterSnap = Instant.now().toEpochMilli();
-                    if (snapOpp.equals("snap") && afterSnap-beforeSnap<20000000 ){
+                    if (snapOpp.equals("snap") && afterSnap-beforeSnap<2000 ){
                         if(turnCount.equals(0)){
                             System.out.println("Player 1 gets a point!");
                             player1Score++;

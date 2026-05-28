@@ -12,7 +12,7 @@ a single deck, and upon a consecutive draw of two cards of the same symbol - SNA
 - - -
 ## How to Download
 - Clone via Git: git clone https://github.com/Hba25/java_Snap.git
-- OR you can navigate to https://github.com/Hba25/java_Snap# , Click the green <> Code 
+- OR you can navigate to https://github.com/Hba25/java_Snap , Click the green <> Code 
 button, and click Download ZIP. Unzip on your device. 
 - - -
 ## Build and Run
