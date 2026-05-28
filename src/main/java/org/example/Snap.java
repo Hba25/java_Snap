@@ -1,6 +1,6 @@
 package org.example;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.time.Instant;
 
 public class Snap extends CardGame
 {
@@ -10,6 +10,14 @@ public class Snap extends CardGame
 
     }
     public void startGame(){
+        //Create Players
+        Player player1 = new Player("Player 1");
+        Player player2 = new Player("Player 2");
+
+
+
+        //Turn counter for players, 0 for P1, 1 for P2
+        int turnCount = 0;
         shuffleDeck();
         System.out.println("Game start!");
         //Create scanner
@@ -25,9 +33,22 @@ public class Snap extends CardGame
 
         while(getDeck().size()>0)
         {
-            System.out.println("Press Enter to draw!!");
+
+            //Prints "Player X, press Enter" using turnCounter
+            if(turnCount == 0){
+                System.out.println(player1.getName() + " Press Enter");
+            } else {
+                System.out.println(player2.getName() + " Press Enter");
+            }
             sc.nextLine();
+
             Card currentCard = dealCard();
+            //Turn swap
+            if(turnCount == 0){
+                turnCount = 1;
+            } else{
+                turnCount =0;
+            }
 
             if (currentCard == null) {
                 System.out.println("No more cards");
@@ -35,9 +56,27 @@ public class Snap extends CardGame
             }
             System.out.println(currentCard);
 
+
+            //Snap logic
             if(currentCard.getSymbol().equals(previousCard.getSymbol())){
-                System.out.println("SNAP! You win!");
-                break;
+//                System.out.println("SNAP! You win!");
+                //Record exact time from snap
+                long beforeSnap = Instant.now().toEpochMilli();
+                System.out.println("Snap! Type snap within two seconds!!");
+                //Scanner to read user input
+                String snapOpp = sc.nextLine();
+                long afterSnap = Instant.now().toEpochMilli();
+                if (snapOpp.equals("snap") && afterSnap-beforeSnap<2000 ){
+                    System.out.println("SNAP! You win!");
+                    break;
+                }
+                else {
+                    System.out.println("Time up! You lose :(");
+                    break;
+
+                }
+
+
             }
             else{
                 previousCard = currentCard;
